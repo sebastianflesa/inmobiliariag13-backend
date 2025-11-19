@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: inmobiliaria
+      DB_USERNAME: postgres
+      DB_PASSWORD: admin
+    depends_on:
+      db:
+        condition: service_healthy
+    #command: sh -lc 'test -f .env || cp .env.example .env; php artisan serve --no-reload --host=0.0.0.0 --port=8000'
+    #command: sh -lc 'test -f .env || cp .env.example .env; php artisan serve --no-reload --host=0.0.0.0 --port=8000'
+    #command: sh -lc 'test -f .env || php -S 0.0.0.0:8000 -t public public/index.php'
+    #command: sh -lc 'test -f .env || cp .env.example .env; php -S 0.0.0.0:8000 -t public public/index.php'
+    command: ["sh","-lc","test -f .env || cp .env.example .env; php -S 0.0.0.0:8000 -t public public/index.php"]
+
+
+    # command lo maneja el Dockerfile (ver abajo). Si prefieres aquí:
+    # command: php artisan serve --host=0.0.0.0 --port=8000
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: inmobiliaria
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d inmobiliaria"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # Opcional: Mailpit para pruebas de correo
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"   # UI web
+      - "1025:1025"   # SMTP
+    # No requiere config si tu .env ya apunta a MAIL_HOST=mailpit y PORT=1025
+
+  # Opcional: Redis para cache/queues/sessions
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
