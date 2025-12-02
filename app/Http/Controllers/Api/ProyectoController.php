@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Proyecto;
+use App\Models\Cliente;
 
 /**
  * @OA\Info(title="API", version="1.0")

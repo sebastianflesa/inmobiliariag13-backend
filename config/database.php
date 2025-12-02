@@ -37,12 +37,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => '',
-            'host' => '127.0.0.1',
-            'port' => '5432',
-            'database' => 'inmobiliaria',
-            'username' => 'postgres',
-            'password' => 'inmobiliaria',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', 'db'), // si estás utilizando Docker, el host podría ser el nombre del servicio
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'inmobiliaria'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

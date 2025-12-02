@@ -21,8 +21,19 @@ class Cliente extends Model
         'telefono'
     ];
 
+    /**
+     * Relación: Un cliente tiene muchas unidades
+     */
     public function unidades()
     {
         return $this->hasMany(Unidad::class);
+    }
+
+    /**
+     * Relación: Un cliente tiene muchos contratos
+     */
+    public function contratos()
+    {
+        return $this->hasMany(Contrato::class);
     }
 }
