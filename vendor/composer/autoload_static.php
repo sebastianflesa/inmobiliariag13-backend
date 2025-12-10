@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8d6f517cf53172186843af8964477c05
+class ComposerStaticInit7e28f0c2c5eb032de702599adf340d12
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -28,12 +28,12 @@ class ComposerStaticInit8d6f517cf53172186843af8964477c05
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         'ac0aa5b57142c92aeadc397fa46b9d39' => __DIR__ . '/..' . '/darkaonline/l5-swagger/src/helpers.php',
@@ -333,8 +333,8 @@ class ComposerStaticInit8d6f517cf53172186843af8964477c05
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -7020,9 +7020,9 @@ class ComposerStaticInit8d6f517cf53172186843af8964477c05
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8d6f517cf53172186843af8964477c05::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8d6f517cf53172186843af8964477c05::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8d6f517cf53172186843af8964477c05::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7e28f0c2c5eb032de702599adf340d12::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7e28f0c2c5eb032de702599adf340d12::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7e28f0c2c5eb032de702599adf340d12::$classMap;
 
         }, null, ClassLoader::class);
     }
